@@ -32,7 +32,6 @@
     "zone.js": "^0.8.19"
   },
   "subPackages": [
-    "functions/lib",
     "functions"
   ],
   "devDependencies": {
