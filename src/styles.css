@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import 'intl-tel-input/build/css/intlTelInput.css';
+@import url('https://fonts.googleapis.com/css?family=Over+the+Rainbow');
+
+html,
+body {
+  height: 100%;
+  background-color: #333;
+}
+
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  color: #fff;
+
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.35)
+  ), radial-gradient( transparent 40%, rgba(0,0,0,0.8) 90%), url('assets/IMG_2783.JPG') center center;
+  background-size: cover;
+}
+
+
+.flag-container {
+  color: grey
+}

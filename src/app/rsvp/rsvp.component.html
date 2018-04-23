@@ -1,0 +1,36 @@
+<div [hidden]="user">
+
+  <div *ngIf="!awaiting" class="form-group mx-sm-3 mb-2">
+    <p>Indtast dit telefonnummer og angiv om du/i ønsker at deltage</p>
+    <div class="form-inline justify-content-center">
+      <label for="phonenumber" class="sr-only">Password</label>
+      <input type="text" class="form-control" id="phonenumber" [(ngModel)]="phoneNumber" ng2TelInput [ng2TelInputOptions]="{initialCountry: 'dk'}"
+        (countryChange)="onCountryChange($event)" />
+      <button (click)="sendLoginCode()" type="submit" class="btn btn-primary">Send</button>
+    </div>
+  </div>
+  <div id="recaptcha-container"></div>
+  <div *ngIf="awaiting" class="form-group mx-sm-3 mb-2">
+    <div>
+      <p>Der er afsendt en verificeringskode i SMS</p>
+    </div>
+    <div class="form-inline justify-content-center">
+      <label for="code" class="sr-only">Enter your Verification Code Here</label>
+      <input type="text" name="code" class="form-control" placeholder="Indtast verificeringskoden" [(ngModel)]="verificationCode">
+      <button (click)="verifyLoginCode()" class="btn btn-primary">Verificer</button>
+    </div>
+  </div>
+  <div>
+
+
+  </div>
+
+
+
+
+</div>
+
+<div *ngIf="user">
+
+  Du kan først tilmelde dig den 25 april. {{ user?.uid }}
+</div>
