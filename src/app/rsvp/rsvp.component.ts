@@ -41,14 +41,24 @@ export class RsvpComponent implements OnInit {
         const docRef = this.afs.doc(`users/${auth.uid}`).valueChanges() as Observable<any>;
         docRef.subscribe(doc => {
 
+          if (doc === null) {
+            return
+          }
+
           if (doc.kids) {
             this.kids = doc.kids;
+          }
+          else {
+            this.kids = null;
           }
           if (doc.adults) {
             this.adults = doc.adults;
           }
+          else {
+            this.adults = null;
+          }
           if (doc.signoff) {
-            this.signedoff = true
+            this.signedoff = true;
           }
           else {
             this.signedoff = false;
@@ -96,15 +106,13 @@ export class RsvpComponent implements OnInit {
       .catch(error => console.log(error));
   }
   yes() {
-    this.afs.doc<any>(`users/${this.uid}`).update({
-      attend: true,
-      signoff: firebase.firestore.FieldValue.delete()
+    this.afs.doc<any>(`users/${this.uid}`).set({
+      attend: true
     });
   }
   signOff() {
-    this.afs.doc<any>(`users/${this.uid}`).update({
-      signoff: true,
-      attend: firebase.firestore.FieldValue.delete()
+    this.afs.doc<any>(`users/${this.uid}`).set({
+      signoff: true
     });
   }
 
