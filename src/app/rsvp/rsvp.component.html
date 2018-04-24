@@ -1,10 +1,10 @@
-<div [hidden]="user">
+<div [hidden]="loggedin">
 
   <div *ngIf="!awaiting" class="form-group mx-sm-3 mb-2">
     <p>Indtast dit telefonnummer og angiv om du/i ønsker at deltage</p>
     <div class="form-inline justify-content-center">
       <label for="phonenumber" class="sr-only">Password</label>
-      <input type="text" class="form-control" id="phonenumber" [(ngModel)]="phoneNumber" ng2TelInput [ng2TelInputOptions]="{initialCountry: 'dk'}"
+      <input type="text" class="form-control" id="phonenumber" [(ngModel)]="phoneNumber" ng2TelInput [ng2TelInputOptions]="options"
         (countryChange)="onCountryChange($event)" />
       <button (click)="sendLoginCode()" type="submit" class="btn btn-primary">Send</button>
     </div>
@@ -12,7 +12,7 @@
   <div id="recaptcha-container"></div>
   <div *ngIf="awaiting" class="form-group mx-sm-3 mb-2">
     <div>
-      <p>Der er afsendt en verificeringskode i SMS</p>
+      <p>Vent venligst. Der er afsendt en verificeringskode med SMS</p>
     </div>
     <div class="form-inline justify-content-center">
       <label for="code" class="sr-only">Enter your Verification Code Here</label>
@@ -21,16 +21,39 @@
     </div>
   </div>
   <div>
+  </div>
+</div>
 
+<div *ngIf="loggedin">
 
+  <div *ngIf="signedoff">
+    <h3>Tak for din tilbagemelding</h3>
+    <p>Vi har registreret at du/I ikke kommer</p>
+  </div>
+
+  <div *ngIf="attend">
+    <h3>Hurra! Vi glæder os så meget</h3>
+    <p>Hvor mange kommer?</p>
+
+    <div class="form-inline justify-content-center">
+      <label>Voksne:</label>
+      <div class="form-group">
+        <input type="text" name="adults" class="form-control" placeholder="Voksne" [(ngModel)]="adults">
+      </div>
+      <label>Børn:</label>
+      <div class="form-group">
+        <input type="text" name="kids" class="form-control" placeholder="Børn" [(ngModel)]="kids">
+      </div>
+      <button (click)="saveAttendees()" class="btn btn-primary">Gem</button>
+    </div>
   </div>
 
 
 
+  <p>du kan altid ændre din status</p>
+  <div class="form-inline justify-content-center">
+    <button (click)="yes()" class="btn btn-success">Kommer!</button>
+    <button (click)="signOff()" class="btn btn-danger">Kan desværre ikke deltage</button>
+  </div>
 
-</div>
-
-<div *ngIf="user">
-
-  Du kan først tilmelde dig den 25 april. {{ user?.uid }}
 </div>

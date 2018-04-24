@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import * as firebase from 'firebase';
 import { AngularFirestore, AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 
 import { environment } from '../environments/environment';
 
@@ -38,7 +38,8 @@ firebase.initializeApp(environment.firebase);
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    Ng2TelInputModule
+    Ng2TelInputModule,
+    AngularFireAuthModule
 
   ],
   providers: [WindowService, AngularFireAuth],
