@@ -1,37 +1,53 @@
-<div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
+<div class="site-wrapper">
 
-  <header class="masthead mb-auto">
-    <div class="inner">
-      <nav  class="nav nav-masthead justify-content-center">
-        <a class="nav-link" [routerLink]="['/agenda']" [ngClass]="{'active' : location === 'agenda'}">Plan for dagen og andet praktisk</a>
-        <a class="nav-link" [routerLink]="['/rsvp']" [ngClass]="{'active' : location === 'rsvp'}">Fortæl os om du kommer!</a>
-        <a class="nav-link" [routerLink]="['/wishlist']" [ngClass]="{'active' : location === 'wishlist'}">Her er vores ønsker</a>
+  <header>
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark justify-content-center">
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav m-auto">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/agenda']" [ngClass]="{'active' : location === 'agenda'}">Plan for dagen og andet praktisk</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/rsvp']" [ngClass]="{'active' : location === 'rsvp'}">Fortæl os om du kommer!</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/wishlist']" [ngClass]="{'active' : location === 'wishlist'}">Her er vores ønsker</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+
+
+
+
+
+    <!-- <nav style="width:100%;position:fixed;left:0;top:0" class="nav nav-masthead bg-dark navbar-dark justify-content-center">
+          <ul class="navbar-nav">
+              <li class="nav-item active">
+                  <a class="nav-link" [routerLink]="['/agenda']" [ngClass]="{'active' : location === 'agenda'}">Plan for dagen og andet praktisk</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/rsvp']" [ngClass]="{'active' : location === 'rsvp'}">Fortæl os om du kommer!</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/wishlist']" [ngClass]="{'active' : location === 'wishlist'}">Her er vores ønsker</a>
+              </li>
+            </ul>
       </nav>
-    </div>
+</div>-->
   </header>
+  <div class="content">
+    <div class="container">
 
-  <main role="main" class="inner cover">
-    <router-outlet></router-outlet>
-  </main>
+      <main role="main" class="inner cover">
+        <router-outlet></router-outlet>
+      </main>
 
-  <footer class="mastfoot mt-auto">
-    <div class="inner">
-      <p>Opdateret d 21 april kl 21:01</p>
+      <!-- Content here -->
     </div>
-  </footer>
-
-
-
+  </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-

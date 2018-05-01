@@ -10,17 +10,13 @@ body {
 }
 
 body {
-  display: -ms-flexbox;
-  display: -webkit-box;
+
   display: flex;
-  -ms-flex-pack: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  color: #fff;
+  flex-direction: column;
 
   background: linear-gradient(
-    rgba(0, 0, 0, 0.35),
-    rgba(0, 0, 0, 0.35)
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.45)
   ), radial-gradient( transparent 40%, rgba(0,0,0,0.8) 90%), url('assets/IMG_2783.JPG') center center;
   background-size: cover;
 }
