@@ -1,8 +1,12 @@
 <h1 class="text-white">Vores ønsker</h1>
 <small class="text-white">Listen opdateres løbende</small>
 
-<ul class="list-group" style="color:black">
-  <li class="list-group-item">Madoplevelser</li>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let wish of wishes | async" >
+    <span *ngIf="!wish.url">{{wish.title}}</span>
+    <a [href]="wish.url" *ngIf="wish.url" [textContent]="wish.title"></a>
+  </li>
+  <!--<li class="list-group-item">Madoplevelser</li>
   <li class="list-group-item">Rosendahl Grand Cru middags tallerkner</li>
   <li class="list-group-item">Rosendahl Grand Cru pasta tallerkner</li>
   <li class="list-group-item">Sengetøj</li>
@@ -18,7 +22,7 @@
   <li class="list-group-item"><a href="https://nicehome.dk/shop/25-sofaborde/741-passion-for-retro-sofabord/">Sofabord 2</a></li>
   <li class="list-group-item">Serveringsfade fra royalcopenhagen: hvid element eller blå palmette</li>
   <li class="list-group-item">S5 konus fad i blå eller grøn</li>
-  <li class="list-group-item">Laekker stegepande af kobber. 26-28cm</li>
+  <li class="list-group-item">Laekker stegepande af kobber. 26-28cm</li>-->
 </ul>
 <p>&nbsp;</p>
 <p class="text-white">Gave koordinator, David Strand +45 51364603</p>

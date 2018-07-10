@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { Observable } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-wishlist',
@@ -6,8 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wishlist.component.css']
 })
 export class WishlistComponent implements OnInit {
+  wishes: Observable<any[]>;
 
-  constructor() { }
+  constructor(db: AngularFirestore) {
+    this.wishes = db.collection('wishes').valueChanges();
+  }
+
 
   ngOnInit() {
   }
